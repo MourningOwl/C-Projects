@@ -1,44 +1,42 @@
 #include <stdio.h>
-// To be scrapped and redone
+
 int main() {
 
-	char grade;
-	char second = 11;
-	char third = 1; 
-	int flag = 1;
-	int flag2 = 1;
-	
-	printf("Please enter your grade:  ");
+	int digit;
+	int branch = 1;
 
-	scanf("%c%c%c", &grade, &second, &third);
+	printf("Please enter your grade: ");
 
-	printf("%c%c%c", grade, second, third);
+	scanf("%d", &digit);
 
-	if (second == 11) {flag = 0; flag2 = 0; printf("\nYou grade is an F!");}
-	
+	if ( (0 > digit) || (digit > 100) ) { 
+		printf("Invalid input!");
+		return 0;
+	}
 
-	if (flag){
-	switch(grade){
-		case 9: printf("Your grade is an A");
-			break;
-		case 8: printf("Your grade is a B");
-			break;
-		case 7: printf("Your grade is a C");
-			break;
-		case 6: printf("Your grade is a D!");
+	switch(digit/10){ //Relies on truncation downwards
+		case 10: printf("You got an A!"); branch = 0;
+		break; 
+		case 9: printf("You got an A!"); branch = 0;
+		break;
+		case 8: printf("You got an B!"); branch = 0;
+		break;
+		case 7: printf("You got an C!"); branch = 0;
+		break;
+		case 6: printf("You got a D!"); branch = 0;
 
 	}
-}
 
-	if (grade == 1) {if (!third) {printf("\nYour grade is an A!"); flag2 = 0; }  }
-
-	if (flag2) {if (grade<6) {printf("\nYour grade is an F!");}}
+	if (branch) {printf("You got an F!");}
 
 	return 0;
 
 }
 	
 	
+
+
+
 
 
 
